@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string(column:'poster');
             $table->timestamps();
             $table->unsignedBigInteger('blog_id');
-            $table->foreign('blog_id')->references('id')->on('blogs');
         });
     }
 
