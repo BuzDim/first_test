@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Http\Controllers\CategoryController;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @property int    $id
  * @property string $name
@@ -17,4 +18,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(CategoryController::class);
+    }
+
 }
