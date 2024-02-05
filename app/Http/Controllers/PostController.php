@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\Post\PostStoreRequest;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -48,7 +48,7 @@ class PostController extends Controller
         $post->name        = $data['name'];
         $post->description = $data['description'] ?? null;
         $post->content     = $data['content'];
-        
+
         $post->poster      = $imageName;
 
         $post->save();

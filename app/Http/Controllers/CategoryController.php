@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class CategoryController extends Controller
@@ -12,7 +13,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Database\Eloquent\Collection
     {
         return Category::all();
     }
@@ -20,7 +21,7 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('categories.create') ;
     }
@@ -28,14 +29,23 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryStoreRequest $request)
+    public function store(CategoryStoreRequest $request): Category
     {
         $data = $request->validated();
 
+        $image = $data ['poster'];
+        $imageName = Str::random(40) . '.' . $image->getClientOriginalExtension();
+        $image->move(
+            storage_path() . '/app/public/categories/posters',
+            $imageName
+        );
+
         $category = new Category();
 
+
+
         $category->name        = $data['name'];
-        $category->poster      = $data['poster'];
+        $category->poster      = $imageName;
 
         $category->save();
 
@@ -45,7 +55,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(Category $category): Category
     {
         return $category;
     }
@@ -69,7 +79,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category): ?bool
     {
         return $category->delete();
     }

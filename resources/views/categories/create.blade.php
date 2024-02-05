@@ -1,17 +1,16 @@
+<form action="{{ route('categories.store') }}" method="post"  enctype="multipart/form-data">
+    @csrf
+    <label>
+        Название
+        <input type="text" name="name" placeholder="название категории">
+    </label>
 
-<form action="{{ route('categories.store') }}" method="post">
-@csrf
-<label>
-    Название
-    <input type="text" name="name" placeholder="название категории">
-</label>
+    <label>
+        Постер
+        <input type="file" name="poster" id="poster">
+    </label>
 
-
-<label>
-    Постер
-    <input type="text" name="poster" id="poster">
-</label>
-<button type="submit">
-    <span>Сохранить</span>
-</button>
+    <button type="submit">
+        <span>Сохранить</span>
+    </button>
 </form>
