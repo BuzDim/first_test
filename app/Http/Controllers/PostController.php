@@ -16,9 +16,10 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Collection
+    public function index(): View|Application|Factory
     {
-        return Post::all();
+        $posts=Post::all();
+        return view("posts.index", compact("posts"));
     }
 
     /**
@@ -59,9 +60,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post): Post
+    public function show(Post $post): View|Application|Factory
     {
-        return $post;
+        return view("posts.post", compact("post"));
     }
 
     /**
