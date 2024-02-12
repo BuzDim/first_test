@@ -1,22 +1,33 @@
-<form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
-    @csrf
-    <label>
-        Название
-        <input type="text" name="name" placeholder="название поста" required>
-    </label>
-    <label>
-        Описание
-        <input type="text" name="description" placeholder="Описание поста">
-    </label>
-    <label>
-        Содержание
-        <textarea name="content" id="content" cols="30" rows="10" required></textarea>
-    </label>
-    <label>
-        Постер
-        <input type="file" name="poster" id="poster" required>
-    </label>
-    <button type="submit">
-        <span>Сохранить</span>
-    </button>
-</form>
+@extends("layouts.app")
+@section("content")
+
+    <div class="w-50 m-auto">
+        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Название</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="название поста"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Описание</label>
+                <input type="text" name="description" class="form-control" id="exampleInputEmail1"
+                       placeholder="Описание поста">
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label">Содержание</label>
+                <textarea type="text" name="content" class="form-control" id="content" cols="30" rows="10"
+                          required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="poster" class="form-label">Постер</label>
+                <input type="file" name="poster" class="form-control" id="poster" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+
+        </form>
+    </div>
+@endsection

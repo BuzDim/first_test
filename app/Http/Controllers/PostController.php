@@ -35,6 +35,7 @@ class PostController extends Controller
      */
     public function store(PostStoreRequest $request): Post
     {
+
         $data = $request->validated();
 
         $image = $data ['poster'];
