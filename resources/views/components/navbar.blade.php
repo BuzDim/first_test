@@ -9,7 +9,7 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="{{url('/posts/')}}">Главная</a>
                 <a class="nav-link" href="{{url('/posts/create')}}">Новый пост</a>
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="{{url('/categories/create')}}">Категории</a>
                 <a class="nav-link" aria-disabled="true">Disabled</a>
             </div>
         </div>
