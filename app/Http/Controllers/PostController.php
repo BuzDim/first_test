@@ -19,8 +19,8 @@ class PostController extends Controller
      */
     public function index(): View|Application|Factory
     {
-        $posts=Post::all();
-        return view("posts.index", compact("posts"));
+        $posts=Post::with('categories')->get();
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -55,7 +55,6 @@ class PostController extends Controller
         $post->name        = $data['name'];
         $post->description = $data['description'] ?? null;
         $post->content     = $data['content'];
-
         $post->poster      = $imageName;
 
         $post->save();
