@@ -26,6 +26,16 @@
                 <label for="poster" class="form-label">Постер</label>
                 <input type="file" name="poster" class="form-control" id="poster" required>
             </div>
+
+            <div class="mb-3">
+                <label for="сategory_ids" class="form-label">Категория</label>
+                <select name="category_ids[]" class="form-control" id="category_ids" multiple>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Сохранить</button>
 
         </form>

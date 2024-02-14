@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\PostStoreRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -27,13 +28,17 @@ class PostController extends Controller
      */
     public function create(): View|Application|Factory
     {
-        return view('posts.create') ;
+        $categories = Category::all();
+
+        return view('posts.create', ['categories' => $categories]);
+
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PostStoreRequest $request): Post
+    public function store(PostStoreRequest $request)
     {
 
         $data = $request->validated();
@@ -55,7 +60,13 @@ class PostController extends Controller
 
         $post->save();
 
-        return $post;
+        if (array_key_exists('category_ids', $data)) {
+            $post->categories()->attach($data['category_ids']);
+        }
+
+        $post->load('categories');
+
+        return $this->index();
     }
 
     /**
@@ -63,7 +74,7 @@ class PostController extends Controller
      */
     public function show(Post $post): View|Application|Factory
     {
-        return view("posts.post", compact("post"));
+        return view("posts.show", compact("post"));
     }
 
     /**
@@ -87,6 +98,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return $this->index();
     }
 }

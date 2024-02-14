@@ -29,7 +29,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryStoreRequest $request): Category
+    public function store(CategoryStoreRequest $request)
     {
         $data = $request->validated();
 
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return $category;
+        return back();
     }
 
     /**

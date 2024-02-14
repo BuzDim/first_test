@@ -11,6 +11,7 @@ class Commentary extends Model
 {
     use HasFactory;
 
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -18,6 +19,6 @@ class Commentary extends Model
 
     public function post(): BelongsTo
     {
-        return $this->belongsTo(PostController::class);
+        return $this->belongsTo(Post::class);
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 /**
  * @property int    $id
  * @property string $name
@@ -20,7 +22,12 @@ class Post extends Model
     use HasFactory;
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(CategoryController::class);
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Commentary::class);
     }
 
 }
