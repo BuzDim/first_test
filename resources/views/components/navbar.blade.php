@@ -1,17 +1,21 @@
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{url('/posts/')}}">Posts Bar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{url('/posts/')}}">Главная</a>
-                <a class="nav-link" href="{{url('/posts/create')}}">Новый пост</a>
-                <a class="nav-link" href="{{url('/categories/create')}}">Категории</a>
-                <a class="nav-link" aria-disabled="true">Disabled</a>
-            </div>
-        </div>
-    </div>
-</nav>
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="{{ url('/') }}" class="navbar-brand">Neuron</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="{{url('/posts/')}}">Главная</a></li>
+                    <li><a href="{{url('/posts/create')}}">Новый пост</a></li>
+                    <li><a href="{{url('/categories/create')}}">Категории</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>

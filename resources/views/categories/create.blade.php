@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.old")
 @section("content")
 
 <div class="w-50 m-auto">

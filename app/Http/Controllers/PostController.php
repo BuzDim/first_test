@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index(): View|Application|Factory
     {
         $posts=Post::with('categories')->get();
-        return view('posts.index', compact('posts'));
+        return view('index', compact('posts'));
     }
 
     /**

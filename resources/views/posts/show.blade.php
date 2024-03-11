@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.old")
 @section("content")
 
 <h1>{{$post["name"]}}</h1>
