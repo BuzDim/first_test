@@ -23,7 +23,7 @@
                              <div class="blog-post-format">
                                   <span><a href="#"><img src="../public/assets/images/author-image1.jpg" class="img-responsive img-circle"> Jen Lopez</a></span>
                                   <span><i class="fa fa-date"></i> July 22, 2017</span>
-                                  <span><a href="#"><i class="fa fa-comment-o"></i> 35 Comments</a></span>
+                                  <span><a href="#"><i class="fa fa-comment-o"></i> Comments</a></span>
                              </div>
                              <div class="blog-post-des">
                                   <p>{{ $post["description"] }}</p>
