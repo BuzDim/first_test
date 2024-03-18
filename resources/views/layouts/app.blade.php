@@ -19,6 +19,11 @@
 
     @yield("content")
 
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Выйти</button>
+    </form>
+
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/particles.min.js') }}"></script>

@@ -73,6 +73,8 @@ class PostController extends Controller
      */
     public function show(Post $post): View|Application|Factory
     {
+        $post = Post::with(['comments', 'comments.user'])->where('id', $post['id'])->first();
+
         return view("posts.show", compact("post"));
     }
 
